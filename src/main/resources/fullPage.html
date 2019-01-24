@@ -1,0 +1,167 @@
+<html>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<head>
+    <style>
+h2   {color: white}
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+<header>
+    <div class="w3-padding-small">
+        <h1><i class="material-icons">assignment</i> Welcome to this page used for learning CSS selectors <i
+                class="material-icons">build</i></h1>
+    </div>
+</header>
+<div id="idModule" class="w3-card-4 w3-blue w3-margin w3-padding-small w3-left">
+    <h5>Using IDs</h5>
+    <img id="idModuleImage" src="https://c1.staticflickr.com/8/7494/27510788280_a9f43c3845_s.jpg"
+         width="100"
+         height="100"
+         alt="This is the module with id">
+</div>
+<div id="classModule" class="w3-card-4 w3-margin w3-padding-small w3-border w3-left">
+    <h5>With Classes</h5>
+    <button class="w3-btn">One class</button>
+    <button class="w3-btn w3-padding w3-border w3-sand">Many classes</button>
+</div>
+<div id="relativeModule" class="w3-card-4 w3-margin w3-padding-small w3-border w3-left">
+    <div>
+        <h5>Relativity</h5>
+        <div>
+            <button class="w3-btn">First button</button>
+            <button class="w3-btn w3-sand">Second button</button>
+        </div>
+        <div>
+            <button class="w3-btn">Third button</button>
+        </div>
+    </div>
+</div>
+<div id="htmlModule" class="w3-card-4 w3-padding-small w3-margin w3-blue-gray w3-left">
+    <h2>This is a H2 text</h2>
+    <h3>This is a H3 text</h3>
+    <div>This is a text in a DIV</div>
+    <p>This is a text in a P</p>
+</div>
+<div id="listModule" class="w3-card-4 w3-padding-small w3-margin w3-left">
+    <ul class="w3-ul w3-border">
+        <li><h5>An unordered list</h5></li>
+        <li>Espresso</li>
+        <li>Capuccino</li>
+        <li>Latte machiato</li>
+        <li>Americano</li>
+        <li>Corto</li>
+        <li>Doppio</li>
+    </ul>
+</div>
+<div id="attributeModule" class="w3-card-4 w3-padding-small w3-margin w3-left">
+    <h5>This is a module with many images.</h5>
+    <div>
+        <div>
+            <img src="https://farm2.staticflickr.com/1849/42515026480_724a3f1888_k.jpg"
+                 width="189"
+                 height="125">
+            <img src="https://farm2.staticflickr.com/1841/42514921130_219cfe1b31_k.jpg"
+                 width="125"
+                 height="125">
+            <img src="https://farm2.staticflickr.com/1878/42514914860_7e713cbf4a_k.jpg"
+                 width="150"
+                 height="125">
+            <img src="https://farm2.staticflickr.com/1843/42514981760_80a2a0925f_k.jpg"
+                 width="125"
+                 height="125">
+            <img src="https://farm2.staticflickr.com/1843/30455839818_e8cc28a338_k.jpg"
+                 width="125"
+                 height="125">
+        </div>
+    </div>
+</div>
+<div class="w3-left w3-card-4 w3-margin w3-padding-small w3-border">
+    <div id="level2" class="w3-sand">
+        <h3>Level 2 no siblings</h3>
+    </div>
+    <div id="level2SiblingsDiffTags" class="w3-blue-gray">
+        <h4>Sibling</h4>
+        <h3>Level 2 siblings with tags different than ALPHA item</h3>
+        <div>Sibling</div>
+        <br>
+    </div>
+    <div id="level2SiblingsSameTag" class="w3-light-gray">
+        <h3>Sibling</h3>
+        <h3>Level 2 siblings with tags identical to ALPHA item</h3>
+        <h3>Sibling</h3>
+    </div>
+    <div>Dropdown:
+        <select name="BRAVO">
+            <option>ZULU</option>
+            <option>YANKEE</option>
+            <option>ALPHA</option>
+            <option>WHISKEY</option>
+        </select>
+        <h4>An Unordered List:</h4>
+        <ul id="BRAVOUL">
+            <li>ZULU</li>
+            <li>YANKEE</li>
+            <li>ALPHA</li>
+        </ul>
+        <h4>An Ordered List:</h4>
+        <ol id="BRAVOOL">
+            <li>ZULU</li>
+            <li>YANKEE</li>
+            <li>ALPHA</li>
+        </ol>
+    </div>
+</div>
+<div class="w3-left w3-card-4 w3-margin w3-padding-small w3-border">
+    <div id="level3" class="w3-sand">
+        <div>
+            <h3>Level 3 no siblings ALPHA!= BRAVO</h3>
+        </div>
+    </div>
+    <div id="level3AEqualsB" class="w3-blue-gray">
+        <div>
+            BRAVO
+            <div>Level 3 no siblings ALPHA=BRAVO</div>
+        </div>
+    </div>
+    <div id="level3BravoIdenticalSiblings" class="w3-light-gray">
+        <div>
+            <h3>ZULU</h3>
+        </div>
+        <div>
+            <h3>ALPHA</h3>
+        </div>
+        <div>
+            <h3>YANKEE</h3>
+        </div>
+    </div>
+    <div id="level3AllIdenticalSiblings" class="w3-amber">
+        <div>
+            <div>ZULU</div>
+        </div>
+        <div>
+            <div>ALPHA</div>
+        </div>
+        <div>
+            <div>YANKEE</div>
+        </div>
+    </div>
+    <div id="level3OneBravoSeveralAlphas" class="w3-pale-red">
+        <div>
+            <h3>ZULU</h3>
+            <h3>ALPHA</h3>
+            <h3>YANKEE</h3>
+        </div>
+    </div>
+</div>
+</body>
+</html>

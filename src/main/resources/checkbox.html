@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+    function myFunction() {
+  // Get the checkbox
+  var checkBox = document.getElementById("theCheckbox");
+  // Get the output text
+  var text = document.getElementById("theText");
+  // If the checkbox is checked, display the output text
+  if (checkBox.checked == true){
+    text.style.color="green";
+  } else {
+    text.style.color="red";
+  }
+}
+</script>
+    <body>
+<input type="checkbox" id="theCheckbox" onclick="myFunction()">
+
+<p id="theText" style="display:block">Hello checkbox!</p>
+    </body>
+</html>
