@@ -64,4 +64,14 @@ public class BasicPage {
     @FindBy(css = "#level3BravoIdenticalSiblings h3") public List<WebElement> level3BravoIdenticalSiblings;
     @FindBy(css = "#level3AllIdenticalSiblings div div") public List<WebElement> level3AllIdentical;
     @FindBy(css = "#level3OneBravoSeveralAlphas h3") public List<WebElement> level3OneBravoSeveralAlphas;
+
+    //iframes page
+    //button found inside the frame identified by id
+    @FindBy(css = "#btnForFrameWithId") public WebElement buttonForFrameWithId;
+    //button found inside the frame identified by index
+    @FindBy(css = "#btnForFrameWithIndex") public WebElement buttonForFrameWithIndex;
+    //button found inside the frame identified as a WebElement
+    @FindBy(css = "#btnForFrameAsWebElement") public WebElement buttonForFrameWithName;
+    //selector for identifying frame as WebElement (when frame has no id, name and will not be identified by index)
+    @FindBy(css = "[src*='FrameAsWebElement']") public WebElement frameAsWebElement;
 }
