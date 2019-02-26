@@ -5,10 +5,19 @@
 <head>
     <style>
 h2   {color: white}
+
+
     </style>
 </head>
 <body>
 <header>
+    <div class="w3-padding-small">
+        <h1><i class="material-icons">assignment</i> Welcome to the interactions page<i
+                class="material-icons">build</i></h1>
+    </div>
+</header>
+<div class="w3-card-4 w3-margin w3-padding-small w3-left">
+    <h3>getAttribute()</h3>
     <div id="idModule" class="w3-card-4 w3-blue w3-margin w3-padding-small w3-left">
         <h5>Using IDs</h5>
         <img id="idModuleImage" src="https://c1.staticflickr.com/8/7494/27510788280_a9f43c3845_s.jpg"
@@ -16,20 +25,42 @@ h2   {color: white}
              height="100"
              alt="This is the module with id">
     </div>
-    <div class="w3-padding-small">
-        <h1><i class="material-icons">assignment</i> Welcome to the interactions page<i
-                class="material-icons">build</i></h1>
+
+    <div class="w3-left w3-card-4 w3-margin w3-padding-small w3-border">
+        <input type="checkbox" name="checkedCheckbox" value="chkBx" checked>The checked checkbox<br>
+        <input type="checkbox" name="uncheckedCheckbox" value="unchkBx">The unchecked checkbox<br>
+        <input type="radio" id="myRadio">The radio button
     </div>
-</header>
-<div class="w3-left w3-card-4 w3-margin w3-padding-small w3-border">
-    <input type="checkbox" name="checkedCheckbox" value="chkBx" checked>The checked checkbox<br>
-    <input type="checkbox" name="uncheckedCheckbox" value="unchkBx">The unchecked checkbox<br>
-    <input type="radio" id="myRadio">The radio button
+    <div>
+        <input class="w3-btn w3-padding w3-border w3-purple" type="button" value="A disabled button"
+               style="font-size:24px;font-family:verdana;"
+               disabled>
+    </div>
 </div>
-<div>
-    <input class="w3-btn w3-padding w3-border w3-purple" type="button" value="A disabled button"
-           style="font-size:24px;font-family:verdana;"
-           disabled>
+<div class="w3-card-4 w3-margin w3-padding-small w3-left">
+    <h3>Select</h3>
+    <select name="coffee">
+        <option value="1">Espresso</option>
+        <option value="2">Doppio</option>
+        <option value="3">Cappuccino</option>
+        <option value="4">Latte Machiato</option>
+        <option value="5">Americano</option>
+    </select>
+    <select name="tea">
+        <option value=""></option>
+        <option value="Assam">Assam</option>
+        <option value="Ceylon">Ceylon</option>
+        <option value="Earl_Grey">Earl Grey</option>
+        <option value="Pu_Erh">Pu Erh</option>
+        <option value="Lady_Grey">Lady Grey</option>
+    </select>
+    <select name="refreshment" size="5" multiple>
+        <option value="1">Rose Lemonade</option>
+        <option value="2">Lavender Lemonade</option>
+        <option value="3">Diet Coke</option>
+        <option value="4">Still Water</option>
+        <option value="5">Sparkling Water</option>
+    </select>
 </div>
 </body>
 </html>

@@ -15,4 +15,10 @@ public class WebElementInteractionPage {
 
     //disabled button
     @FindBy(css = "[type='button']") public WebElement disabledButton;
+
+    //dropdowns
+    @FindBy(css = "[name='coffee']") public WebElement coffeeSelect;
+    @FindBy(css = "[name='tea']") public WebElement teaSelect;
+    @FindBy(css = "[name='refreshment']") public WebElement refreshmentSelect;
+
 }
