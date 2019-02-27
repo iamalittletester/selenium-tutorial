@@ -1,10 +1,7 @@
 package tutorialSolution.elementInteractionSolution;
 
 import browser.BrowserGetter;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -32,6 +29,10 @@ public class ElementInteractionTest {
         driver = browserGetter.getChromeDriver();
         //initialize page object class
         page = PageFactory.initElements(driver, WebElementInteractionPage.class);
+    }
+
+    @BeforeEach
+    public void beforeEach() {
         driver.get(new File("src/main/resources/interactions.html").getAbsolutePath());
     }
 
@@ -42,7 +43,16 @@ public class ElementInteractionTest {
 
     @Test
     public void click() {
-
+        //checking a checkbox
+        page.checkboxToClick.click();
+        //unchecking the checkbox
+        page.checkboxToClick.click();
+        //checking a radio button
+        page.radioButtonToClick.click();
+        //clicking a button which triggers the display of a message
+        page.buttonToClick.click();
+        //clicking on a link which causes a redirect to another page
+        page.linkToClick.click();
     }
 
     @Test

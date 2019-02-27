@@ -13,6 +13,12 @@ public class WebElementInteractionPage {
     @FindBy(css = "[name='uncheckedCheckbox']") public WebElement uncheckedCheckbox;
     @FindBy(css = "#myRadio") public WebElement radioButton;
 
+    //elements for clicking
+    @FindBy(css = "[name='checkboxToClick']") public WebElement checkboxToClick;
+    @FindBy(css = "#radioButtonToClick") public WebElement radioButtonToClick;
+    @FindBy(css = "#buttonToClick") public WebElement buttonToClick;
+    @FindBy(css = "#linkToClick") public WebElement linkToClick;
+
     //disabled button
     @FindBy(css = "[type='button']") public WebElement disabledButton;
 

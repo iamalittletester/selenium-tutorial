@@ -1,10 +1,25 @@
 <html>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script>
+var app = angular.module("myShoppingList", []);
+app.controller("myCtrl", function($scope) {
+    $scope.clickButton = function () {
+            $scope.successtext = "Success!";
+    }
+
+});
+
+
+
+</script>
 
 <head>
     <style>
 h2   {color: white}
+
+
 
 
     </style>
@@ -16,6 +31,15 @@ h2   {color: white}
                 class="material-icons">build</i></h1>
     </div>
 </header>
+<div ng-app="myShoppingList" ng-cloak ng-controller="myCtrl" class="w3-card-4 w3-margin w3-padding-small w3-left">
+    <h3>click()</h3>
+    <input type="checkbox" name="checkboxToClick">A checkbox<br>
+    <input type="radio" id="radioButtonToClick">The radio button
+    <button id="buttonToClick" ng-click="clickButton()" class="w3-btn w3-padding w3-teal">Button</button>
+    <p class="successMessage w3-text-green">{{successtext}}</p>
+    <a id="linkToClick" href="https://imalittletester.com/">Link</a>
+</div>
+</div>
 <div class="w3-card-4 w3-margin w3-padding-small w3-left">
     <h3>getAttribute()</h3>
     <div id="idModule" class="w3-card-4 w3-blue w3-margin w3-padding-small w3-left">
