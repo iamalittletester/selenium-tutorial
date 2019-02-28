@@ -57,7 +57,19 @@ public class ElementInteractionTest {
 
     @Test
     public void sendKeys() {
-
+        //type into an <input> HTML element whose 'type' attribute is 'text'
+        page.textInput.sendKeys("coffee");
+        assertEquals("coffee", page.textInput.getAttribute("value"));
+        //type into a <textarea> element
+        //before typing, the textarea element displays a hint, but not an actual text
+        //therefore the getAttribute("value") method call returns an empty String
+        assertEquals("", page.textarea.getAttribute("value"));
+        page.textarea.sendKeys("1234567890");
+        //after typing, the text in the field will be "1234567890"
+        assertEquals("1234567890", page.textarea.getAttribute("value"));
+        //type the same text again and the text in the field becomes "12345678901234567890"
+        page.textarea.sendKeys("1234567890");
+        assertEquals("12345678901234567890", page.textarea.getAttribute("value"));
     }
 
     @Test

@@ -19,6 +19,10 @@ public class WebElementInteractionPage {
     @FindBy(css = "#buttonToClick") public WebElement buttonToClick;
     @FindBy(css = "#linkToClick") public WebElement linkToClick;
 
+    //elements for typing
+    @FindBy(css = "[type='text']") public WebElement textInput;
+    @FindBy(css = "textarea") public WebElement textarea;
+
     //disabled button
     @FindBy(css = "[type='button']") public WebElement disabledButton;
 
