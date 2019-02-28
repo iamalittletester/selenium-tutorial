@@ -74,7 +74,22 @@ public class ElementInteractionTest {
 
     @Test
     public void clear() {
+        //type into an <input> HTML element whose 'type' attribute is 'text'
+        page.textInput.sendKeys("coffee");
+        assertEquals("coffee", page.textInput.getAttribute("value"));
+        //clear the textInput field, retype the String "coffee"
+        page.textInput.clear();
+        page.textInput.sendKeys("coffee");
+        assertEquals("coffee", page.textInput.getAttribute("value"));
 
+        page.textarea.sendKeys("1234567890");
+        //after typing, the text in the field will be "1234567890"
+        assertEquals("1234567890", page.textarea.getAttribute("value"));
+        //clear the field
+        page.textarea.clear();
+        //type the same text again and the text in the field becomes "1234567890"
+        page.textarea.sendKeys("1234567890");
+        assertEquals("1234567890", page.textarea.getAttribute("value"));
     }
 
     @Test
@@ -198,7 +213,6 @@ public class ElementInteractionTest {
         // 8. deselect last remaining selected option by visible text and check that there are no more selected options
         refreshmentSelect.deselectByVisibleText("Still Water");
         assertEquals(0, refreshmentSelect.getAllSelectedOptions().size());
-
     }
 
     @Test

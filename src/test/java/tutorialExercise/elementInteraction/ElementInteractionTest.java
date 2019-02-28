@@ -45,6 +45,11 @@ public class ElementInteractionTest {
     }
 
     @Test
+    public void clear() {
+
+    }
+
+    @Test
     public void getAttribute() {
 
     }
