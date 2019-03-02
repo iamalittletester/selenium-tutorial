@@ -24,7 +24,17 @@ public class WebElementInteractionPage {
     @FindBy(css = "textarea") public WebElement textarea;
 
     //disabled button
-    @FindBy(css = "[type='button']") public WebElement disabledButton;
+    @FindBy(css = "input[type='button']") public WebElement disabledButton;
+
+    //elements for getText
+    @FindBy(css = "#getTextOuterDiv") public WebElement getTextOuterDiv;
+    @FindBy(css = "#getTextInnerDiv") public WebElement getTextInnerDiv;
+    @FindBy(css = "#getTextInnerDiv h5") public WebElement getTexth5;
+    @FindBy(css = "#getTextInnerDiv img") public WebElement getTextImg;
+    @FindBy(css = "#getTextInnerDiv a") public WebElement getTextLink;
+    @FindBy(css = "#getTextInnerDiv button") public WebElement getTextButton;
+    @FindBy(css = "#getTextInnerDiv select option") public WebElement getTextDropdownFirstOption;
+    @FindBy(css = "[maxlength='100']") public WebElement getTextTextarea;
 
     //dropdowns
     @FindBy(css = "[name='coffee']") public WebElement coffeeSelect;

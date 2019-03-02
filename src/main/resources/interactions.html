@@ -13,14 +13,12 @@ app.controller("myCtrl", function($scope) {
 
 
 
+
 </script>
 
 <head>
     <style>
 h2   {color: white}
-
-
-
 
     </style>
 </head>
@@ -39,16 +37,38 @@ h2   {color: white}
     <p class="successMessage w3-text-green">{{successtext}}</p>
     <a id="linkToClick" href="https://www.google.com">Link</a>
 </div>
-<div class="w3-card-4 w3-margin w3-padding-small w3-left">
+<div class="w3-card-4 w3-margin w3-padding-small w3-left" style="width:300px;">
     <h3>sendKeys()</h3>
     <input type="text">
     <textarea maxlength="200" placeholder="12345"></textarea>
 </div>
+<div class="w3-card-4 w3-margin w3-padding-small w3-left" >
+<div id="getTextOuterDiv">
+    <h3>getText()</h3>
+    <div id="getTextInnerDiv" class="w3-card-4 w3-margin w3-padding-small" >
+        <img id="getTextImage" src="https://farm2.staticflickr.com/1854/42514697560_1740d1993f_n.jpg"
+             width="100"
+             height="100"
+             alt="This is the module with id">
+        <div class="w3-right">
+            <h5>H5 text</h5>
+            <a href="https://www.google.com">Link text</a>
+            <button type="button">Button text</button>
+            <select>
+                <option value="1">First text</option>
+                <option value="2">Second text</option>
+            </select>
+        </div>
+    </div>
+</div>
+    <textarea maxlength="100">Predefined text</textarea>
+</div>
+
 <div class="w3-card-4 w3-margin w3-padding-small w3-left">
     <h3>getAttribute()</h3>
     <div id="idModule" class="w3-card-4 w3-blue w3-margin w3-padding-small w3-left">
         <h5>Using IDs</h5>
-        <img id="idModuleImage" src="https://c1.staticflickr.com/8/7494/27510788280_a9f43c3845_s.jpg"
+        <img id="idModuleImage" src="https://farm2.staticflickr.com/1886/43416094775_ab4721efb9_n.jpg"
              width="100"
              height="100"
              alt="This is the module with id">

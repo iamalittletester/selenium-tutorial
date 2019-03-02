@@ -61,7 +61,7 @@ public class ElementInteractionTest {
         page.textInput.sendKeys("coffee");
         assertEquals("coffee", page.textInput.getAttribute("value"));
         //type into a <textarea> element
-        //before typing, the textarea element displays a hint, but not an actual text
+        //before typing, the textarea element displays a hint, but not an actual text (in the 'placeholder' attribute)
         //therefore the getAttribute("value") method call returns an empty String
         assertEquals("", page.textarea.getAttribute("value"));
         page.textarea.sendKeys("1234567890");
@@ -94,7 +94,35 @@ public class ElementInteractionTest {
 
     @Test
     public void getText() {
+        //text of image (<img> tag)
+        assertEquals("", page.getTextImg.getText());
+        //text of h5 tag
+        assertEquals("H5 text", page.getTexth5.getText());
+        //text of link (<a> tag)
+        assertEquals("Link text", page.getTextLink.getText());
+        //text of a button (<button> tag)
+        assertEquals("Button text", page.getTextButton.getText());
+        //text of first option of <select> tag
+        assertEquals("First text", page.getTextDropdownFirstOption.getText());
+        //text of div with id 'getTextInnerDiv'
+        assertEquals("H5textLinktextButtontextFirsttextSecondtext", page.getTextInnerDiv.getText().replaceAll("\\s", ""));
+        //text of div with id 'getTextOuterDiv'
+        assertEquals("getText()H5textLinktextButtontextFirsttextSecondtext", page.getTextOuterDiv.getText().replaceAll("\\s", ""));
 
+        //text of <textarea> which has a predefined text
+        assertEquals("Predefined text", page.getTextTextarea.getText());
+        assertEquals("Predefined text", page.getTextTextarea.getAttribute("value"));
+
+        //clear the text of <textarea> element, and check that getText() still return the initial text that was
+        // placed inside the tag
+        page.getTextTextarea.clear();
+        assertEquals("Predefined text", page.getTextTextarea.getText());
+        assertEquals("", page.getTextTextarea.getAttribute("value"));
+
+        //type text in the text area. getText() returns initial text. getAttribute("value") returns newly typed text
+        page.getTextTextarea.sendKeys("New text");
+        assertEquals("Predefined text", page.getTextTextarea.getText());
+        assertEquals("New text", page.getTextTextarea.getAttribute("value"));
     }
 
     @Test
