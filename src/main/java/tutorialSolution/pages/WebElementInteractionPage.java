@@ -41,4 +41,7 @@ public class WebElementInteractionPage {
     @FindBy(css = "[name='tea']") public WebElement teaSelect;
     @FindBy(css = "[name='refreshment']") public WebElement refreshmentSelect;
 
+    //for getting the CSS attributes
+    @FindBy(css = "h2") public WebElement h2Element;
+    @FindBy(css = "#getCssValueDiv") public WebElement h2DivElement;
 }

@@ -50,12 +50,22 @@ public class ElementInteractionTest {
     }
 
     @Test
+    public void getText() {
+
+    }
+
+    @Test
     public void getAttribute() {
 
     }
 
     @Test
     public void select() {
+
+    }
+
+    @Test
+    public void getCssValue() {
 
     }
 }

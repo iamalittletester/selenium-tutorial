@@ -4,6 +4,7 @@ import browser.BrowserGetter;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import tutorialSolution.pages.WebElementInteractionPage;
@@ -245,7 +246,14 @@ public class ElementInteractionTest {
 
     @Test
     public void getCSSValue() {
-
+        //check that the property 'width' set by the 'style' attribute of the WebElement is "300px"
+        assertEquals("300px", page.h2DivElement.getCssValue("width"));
+        //check that the property 'background-color' set via a CSS library is the expected blue color; comparison is
+        // done between two Color objects, generated from the expected hex value and actual rgba value (as returned
+        // by the 'getCssValue()' method
+        assertEquals(Color.fromString("#3f51b5"), Color.fromString(page.h2DivElement.getCssValue("background-color")));
+        //check that the 'color' property set by CSS in its hex representation equals the expected hex value
+        assertEquals("#ffff00", Color.fromString(page.h2Element.getCssValue("color")).asHex());
     }
 }
 
