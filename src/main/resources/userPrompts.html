@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head><title>User prompts</title></head>
+<body>
+
+
+<button id="alertButton" onclick="alertFunction()">Alert button</button>
+<button id="confirmButton" onclick="confirmFunction()">Confirm button</button>
+<button id="promptButton" onclick="promptFunction()">Prompt button</button>
+
+<p id="userClicked"></p>
+
+<script>
+function alertFunction() {
+  alert("This is the alert box");
+}
+function confirmFunction() {
+  var confirmBoolean = confirm("Confirm modal");
+  if (confirmBoolean == true) {
+    document.getElementById("userClicked").innerHTML = "OK";
+  } else {
+    document.getElementById("userClicked").innerHTML = "Cancel";
+  }
+   txt;
+}
+function promptFunction() {
+  var promptOption = prompt("Type something");
+  if (promptOption != null) {
+    document.getElementById("userClicked").innerHTML =
+    "OK";
+  }
+  else {
+  document.getElementById("userClicked").innerHTML =
+    "Cancel";
+  }
+}
+</script>
+
+</body>
+</html>
