@@ -52,4 +52,18 @@ public class BrowserGetter {
         driver.manage().window().maximize();
         return driver;
     }
+
+    public WebDriver getDriver() {
+        switch (System.getProperty("browser").toLowerCase()) {
+            case "chrome" :
+                System.out.println("Chrome was chosen!");
+                return getChromeDriver();
+            case "firefox" :
+                System.out.println("Firefox was chosen!");
+                return getFirefoxDriver();
+            default:
+                System.out.println("Unknown browser! Will not start any browser instance!");
+                return null;
+        }
+    }
 }
