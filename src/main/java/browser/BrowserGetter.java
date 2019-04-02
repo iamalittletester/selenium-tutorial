@@ -1,5 +1,6 @@
 package browser;
 
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -14,8 +15,6 @@ public class BrowserGetter {
      *          only create a webDriver instance for a known operating system
      */
     public WebDriver getChromeDriver() {
-
-
         if (!IS_OS_WINDOWS && !IS_OS_LINUX && !IS_OS_MAC) {
             throw new RuntimeException("Could not initialize browser due to unknown operating system!");
         }
@@ -62,8 +61,27 @@ public class BrowserGetter {
                 System.out.println("Firefox was chosen!");
                 return getFirefoxDriver();
             default:
-                System.out.println("Unknown browser! Will not start any browser instance!");
-                return null;
+                throw new RuntimeException("Unsupported browser! Will not start any browser!");
         }
     }
+
+    public WebDriver getChromeDriverCustomSize(int width, int height) {
+        if (!IS_OS_WINDOWS && !IS_OS_LINUX && !IS_OS_MAC) {
+            throw new RuntimeException("Could not initialize browser due to unknown operating system!");
+        }
+        if (IS_OS_WINDOWS) {
+            setProperty("webdriver.chrome.driver", "src/test/resources/browserBinaries/chromedriver.exe");
+        }
+        if (IS_OS_LINUX) {
+            setProperty("webdriver.chrome.driver", "src/test/resources/browserBinaries/chromedriver");
+        }
+        if (IS_OS_MAC) {
+            setProperty("webdriver.chrome.driver", "src/test/resources/browserBinaries/chromedriverMac");
+        }
+
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().setSize(new Dimension(width, height));
+        return driver;
+    }
+
 }

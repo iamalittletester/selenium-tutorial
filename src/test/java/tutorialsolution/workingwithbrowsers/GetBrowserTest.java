@@ -40,7 +40,7 @@ public class GetBrowserTest {
     @Test
     public void multipleBrowserWindows() {
         //start one browser instance
-        driver = browserGetter.getChromeDriver();
+        driver = browserGetter.getFirefoxDriver();
         //open new page
         WindowsPage page = PageFactory.initElements(driver, WindowsPage.class);
         driver.get(new File("src/main/resources/mainPage.html").getAbsolutePath());
@@ -55,6 +55,14 @@ public class GetBrowserTest {
         //there are now 3 open windows
         System.out.println("There are now " + driver.getWindowHandles().size() + " open windows");
         //close all the browser instances
+        driver.quit();
+    }
+
+    @Test
+    public void getChromeDriverCustomSize() {
+        //open a Chrome browser
+        driver = browserGetter.getChromeDriverCustomSize(460, 640);
+        //close all the open browser windows; in this case just the one
         driver.quit();
     }
 }
