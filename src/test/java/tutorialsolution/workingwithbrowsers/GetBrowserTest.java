@@ -40,7 +40,7 @@ public class GetBrowserTest {
     @Test
     public void multipleBrowserWindows() {
         //start one browser instance
-        driver = browserGetter.getFirefoxDriver();
+        driver = browserGetter.getChromeDriver();
         //open new page
         WindowsPage page = PageFactory.initElements(driver, WindowsPage.class);
         driver.get(new File("src/main/resources/mainPage.html").getAbsolutePath());
