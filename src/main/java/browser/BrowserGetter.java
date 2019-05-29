@@ -14,6 +14,14 @@ public class BrowserGetter {
      *          if it is not one of the predefined ones, just throw exception
      *          only create a webDriver instance for a known operating system
      */
+
+    public WebDriver getWinChromeDriver() {
+        setProperty("webdriver.chrome.driver", "src/test/resources/browserBinaries/chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        return driver;
+    }
+
     public WebDriver getChromeDriver() {
         if (!IS_OS_WINDOWS && !IS_OS_LINUX && !IS_OS_MAC) {
             throw new RuntimeException("Could not initialize browser due to unknown operating system!");
