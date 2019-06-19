@@ -135,6 +135,8 @@ public class CSSSelectorsTest {
         System.out.println(page.level2SiblingsWithDifferentTags.getText());
         //level 2 with siblings of same tag as item ALPHA
         System.out.println(page.level2SiblingsSameTag.get(1).getText());
+        //level 2 with siblings of same tag as item ALPHA but ALPHA has class
+        System.out.println("level2SiblingsSameTagAndAlphaHasClass" + page.level2SiblingsSameTagAndAlphaHasClass.getText());
         //level 2 : dropdown
         System.out.println(page.dropdownOptions.get(2).getText());
         //unordered list
@@ -145,6 +147,8 @@ public class CSSSelectorsTest {
         System.out.println(page.level3.getText());
         //level 3, no siblings, ALPHA=BRAVO
         System.out.println(page.level3AlphaEqualsBravo.getText());
+        //level 3, no siblings, ALPHA=BRAVO
+        System.out.println("level3AlphaEqualsBravoAlphaHasClass" + page.level3AlphaEqualsBravoAlphaHasClass.getText());
         //level 3, siblings on BRAVO level: ALPHA=h3, BRAVO=div
         //level 3, BRAVO has siblings, all BRAVO's children have same tag as ALPHA
         System.out.println(page.level3BravoIdenticalSiblings.get(1).getText());

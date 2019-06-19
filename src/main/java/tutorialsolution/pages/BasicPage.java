@@ -28,10 +28,10 @@ public class BasicPage {
     @FindBy(css = "div")
     public List<WebElement> divElements;
     //image whose width attribute equals 189
-    @FindBy(css = "img[width='189']")
+    @FindBy(css = "[width='189'][height='125']")
     public WebElement imageWithSpecifiedWidth;
     //image whose sources (src) attribute contains 1878
-    @FindBy(css = "img[src*='1878']")
+    @FindBy(css = "[src*='1878']")
     public WebElement imageWithSrcContains;
     //relativity: first button from the module with id relativeModule
     @FindBy(css = "#relativeModule button")
@@ -51,6 +51,8 @@ public class BasicPage {
     public WebElement level2SiblingsWithDifferentTags;
     @FindBy(css = "#level2SiblingsSameTag h3")
     public List<WebElement> level2SiblingsSameTag;
+    @FindBy(css = "#level2SiblingsSameTagAndClass .someClass")
+    public WebElement level2SiblingsSameTagAndAlphaHasClass;
     @FindBy(css = "select[name='BRAVO'] option")
     public List<WebElement> dropdownOptions;
     @FindBy(css = "#BRAVOUL li")
@@ -61,6 +63,8 @@ public class BasicPage {
     public WebElement level3;
     @FindBy(css = "#level3AEqualsB div div")
     public WebElement level3AlphaEqualsBravo;
+    @FindBy(css = "#level3AEqualsBAHasClass .w3-red")
+    public WebElement level3AlphaEqualsBravoAlphaHasClass;
     @FindBy(css = "#level3BravoIdenticalSiblings h3") public List<WebElement> level3BravoIdenticalSiblings;
     @FindBy(css = "#level3AllIdenticalSiblings div div") public List<WebElement> level3AllIdentical;
     @FindBy(css = "#level3OneBravoSeveralAlphas h3") public List<WebElement> level3OneBravoSeveralAlphas;
