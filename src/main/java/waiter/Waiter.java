@@ -8,6 +8,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 /**
  * A class that holds only Selenium wait methods
  */
@@ -120,7 +122,9 @@ public class Waiter {
      * @param specifiedTimeout - amount of seconds you want to wait for
      */
     public void waitForPageLoadComplete(WebDriver driver, int specifiedTimeout) {
-        Wait<WebDriver> wait = new WebDriverWait(driver, specifiedTimeout);
+
+        Duration timeoutDuration = Duration.ofSeconds(specifiedTimeout);
+        Wait<WebDriver> wait = new WebDriverWait(driver, timeoutDuration);
         wait.until(driver1 -> String
                 .valueOf(((JavascriptExecutor) driver1).executeScript("return document.readyState"))
                 .equals("complete"));
@@ -150,13 +154,17 @@ public class Waiter {
      * @param specifiedTimeout - amount of seconds you want to wait for
      */
     public void waitForElementToBeDisplayed(WebElement element, WebDriver driver, int specifiedTimeout) {
-        WebDriverWait wait = new WebDriverWait(driver, specifiedTimeout);
+
+        Duration timeoutDuration = Duration.ofSeconds(specifiedTimeout);
+        WebDriverWait wait = new WebDriverWait(driver, timeoutDuration);
         ExpectedCondition<Boolean> elementIsDisplayed = arg0 -> element.isDisplayed();
         wait.until(elementIsDisplayed);
     }
 
     public void clickWithExpectedConditions(WebElement element, WebDriver driver, int specifiedTimeout) {
-        WebDriverWait wait = new WebDriverWait(driver, specifiedTimeout);
+
+        Duration timeoutDuration = Duration.ofSeconds(specifiedTimeout);
+        WebDriverWait wait = new WebDriverWait(driver, timeoutDuration);
         wait.until(ExpectedConditions.elementToBeClickable(element));
         element.click();
     }
@@ -179,7 +187,9 @@ public class Waiter {
      * @param specifiedTimeout - amount of seconds you want to wait for
      */
     public void click(WebElement element, WebDriver driver, int specifiedTimeout) {
-        WebDriverWait wait = new WebDriverWait(driver, specifiedTimeout);
+
+        Duration timeoutDuration = Duration.ofSeconds(specifiedTimeout);
+        WebDriverWait wait = new WebDriverWait(driver, timeoutDuration);
         ExpectedCondition<Boolean> elementIsClickable = arg0 -> {
             try {
                 element.click();
@@ -216,7 +226,9 @@ public class Waiter {
      */
     public void waitForElementTextEqualsString(WebElement element, String expectedString, WebDriver driver, int
             specifiedTimeout) {
-        WebDriverWait wait = new WebDriverWait(driver, specifiedTimeout);
+
+        Duration timeoutDuration = Duration.ofSeconds(specifiedTimeout);
+        WebDriverWait wait = new WebDriverWait(driver, timeoutDuration);
         ExpectedCondition<Boolean> elementTextEqualsString = arg0 -> element.getText().equals(expectedString);
         wait.until(elementTextEqualsString);
     }
@@ -250,9 +262,10 @@ public class Waiter {
      * @param specifiedTimeout - amount of seconds you want to wait for
      */
     public void waitForElementTextEqualsString_IgnoreCase(WebElement element, String expectedString, WebDriver driver,
-                                                          int
-                                                                  specifiedTimeout) {
-        WebDriverWait wait = new WebDriverWait(driver, specifiedTimeout);
+                                                          int specifiedTimeout) {
+
+        Duration timeoutDuration = Duration.ofSeconds(specifiedTimeout);
+        WebDriverWait wait = new WebDriverWait(driver, timeoutDuration);
         ExpectedCondition<Boolean> elementTextEqualsStringIgnoreCase = arg0 -> element.getText().equalsIgnoreCase
                 (expectedString);
         wait.until(elementTextEqualsStringIgnoreCase);
@@ -274,8 +287,8 @@ public class Waiter {
      * @param expectedString - the expected value of the WebElement's text on which a whitespace removal is also done
      * @param driver         - the WebDriver instance
      */
-    public void waitForElementTextEqualsString_IgnoreWhitespaces(WebElement element, String expectedString, WebDriver
-            driver) {
+    public void waitForElementTextEqualsString_IgnoreWhitespaces(WebElement element, String expectedString,
+                                                                 WebDriver driver) {
         waitForElementTextEqualsString_IgnoreWhitespaces(element, expectedString, driver, TIMEOUT);
     }
 
@@ -295,9 +308,11 @@ public class Waiter {
      * @param driver           - the WebDriver instance
      * @param specifiedTimeout - amount of seconds you want to wait for
      */
-    public void waitForElementTextEqualsString_IgnoreWhitespaces(WebElement element, String expectedString, WebDriver
-            driver, int specifiedTimeout) {
-        WebDriverWait wait = new WebDriverWait(driver, specifiedTimeout);
+    public void waitForElementTextEqualsString_IgnoreWhitespaces(WebElement element, String expectedString,
+                                                                 WebDriver driver, int specifiedTimeout) {
+
+        Duration timeoutDuration = Duration.ofSeconds(specifiedTimeout);
+        WebDriverWait wait = new WebDriverWait(driver, timeoutDuration);
         ExpectedCondition<Boolean> elementTextEqualsString = arg0 -> element.getText().replaceAll("\\s", "").equals
                 (expectedString.replaceAll("\\s", ""));
         wait.until(elementTextEqualsString);
@@ -327,9 +342,10 @@ public class Waiter {
      * @param driver           - the WebDriver instance
      * @param specifiedTimeout - amount of seconds you want to wait for
      */
-    public void waitForElementTextContainsString(WebElement element, String expectedString, WebDriver driver, int
-            specifiedTimeout) {
-        WebDriverWait wait = new WebDriverWait(driver, specifiedTimeout);
+    public void waitForElementTextContainsString(WebElement element, String expectedString, WebDriver driver, int specifiedTimeout) {
+
+        Duration timeoutDuration = Duration.ofSeconds(specifiedTimeout);
+        WebDriverWait wait = new WebDriverWait(driver, timeoutDuration);
         ExpectedCondition<Boolean> elementTextContainsString = arg0 -> element.getText().contains(expectedString);
         wait.until(elementTextContainsString);
     }
@@ -345,8 +361,7 @@ public class Waiter {
      * @param expectedString - the value expected to be part of the WebElement's text, ignoring the case
      * @param driver         - the WebDriver instance
      */
-    public void waitForElementTextContainsString_IgnoreCase(WebElement element, String expectedString, WebDriver
-            driver) {
+    public void waitForElementTextContainsString_IgnoreCase(WebElement element, String expectedString, WebDriver driver) {
         waitForElementTextContainsString_IgnoreCase(element, expectedString, driver, TIMEOUT);
     }
 
@@ -363,9 +378,10 @@ public class Waiter {
      * @param driver           - the WebDriver instance
      * @param specifiedTimeout - amount of seconds you want to wait for
      */
-    public void waitForElementTextContainsString_IgnoreCase(WebElement element, String expectedString, WebDriver driver,
-                                                            int specifiedTimeout) {
-        WebDriverWait wait = new WebDriverWait(driver, specifiedTimeout);
+    public void waitForElementTextContainsString_IgnoreCase(WebElement element, String expectedString, WebDriver driver, int specifiedTimeout) {
+
+        Duration timeoutDuration = Duration.ofSeconds(specifiedTimeout);
+        WebDriverWait wait = new WebDriverWait(driver, timeoutDuration);
         ExpectedCondition<Boolean> elementTextContainsString = arg0 -> element.getText().toLowerCase().contains
                 (expectedString.toLowerCase());
         wait.until(elementTextContainsString);
@@ -387,8 +403,7 @@ public class Waiter {
      *                       also done
      * @param driver         - the WebDriver instance
      */
-    public void waitForElementTextContainsString_IgnoreWhitespaces(WebElement element, String expectedString, WebDriver
-            driver) {
+    public void waitForElementTextContainsString_IgnoreWhitespaces(WebElement element, String expectedString, WebDriver driver) {
         waitForElementTextContainsString_IgnoreWhitespaces(element, expectedString, driver, TIMEOUT);
     }
 
@@ -411,7 +426,9 @@ public class Waiter {
      */
     public void waitForElementTextContainsString_IgnoreWhitespaces(WebElement element, String expectedString, WebDriver
             driver, int specifiedTimeout) {
-        WebDriverWait wait = new WebDriverWait(driver, specifiedTimeout);
+
+        Duration timeoutDuration = Duration.ofSeconds(specifiedTimeout);
+        WebDriverWait wait = new WebDriverWait(driver, timeoutDuration);
         ExpectedCondition<Boolean> elementTextContainsString = arg0 -> element.getText().replaceAll("\\s", "").contains
                 (expectedString.replaceAll("\\s", ""));
         wait.until(elementTextContainsString);
@@ -447,7 +464,9 @@ public class Waiter {
      */
     public void waitForElementAttributeEqualsString(WebElement element, String attribute, String expectedString,
                                                     WebDriver driver, int specifiedTimeout) {
-        WebDriverWait wait = new WebDriverWait(driver, specifiedTimeout);
+
+        Duration timeoutDuration = Duration.ofSeconds(specifiedTimeout);
+        WebDriverWait wait = new WebDriverWait(driver, timeoutDuration);
         ExpectedCondition<Boolean> elementAttributeEqualsString = arg0 -> element.getAttribute(attribute).equals
                 (expectedString);
         wait.until(elementAttributeEqualsString);
@@ -486,10 +505,11 @@ public class Waiter {
      */
     public void waitForElementAttributeEqualsString_IgnoreCase(WebElement element, String attribute, String
             expectedString, WebDriver driver, int specifiedTimeout) {
-        WebDriverWait wait = new WebDriverWait(driver, specifiedTimeout);
+
+        Duration timeoutDuration = Duration.ofSeconds(specifiedTimeout);
+        WebDriverWait wait = new WebDriverWait(driver, timeoutDuration);
         ExpectedCondition<Boolean> elementAttributeEqualsStringIgnoreCase = arg0 -> element.getAttribute(attribute)
-                .equalsIgnoreCase
-                        (expectedString);
+                .equalsIgnoreCase(expectedString);
         wait.until(elementAttributeEqualsStringIgnoreCase);
     }
 
@@ -535,7 +555,9 @@ public class Waiter {
      */
     public void waitForElementAttributeEqualsString_IgnoreWhitespaces(WebElement element, String attribute, String
             expectedString, WebDriver driver, int specifiedTimeout) {
-        WebDriverWait wait = new WebDriverWait(driver, specifiedTimeout);
+
+        Duration timeoutDuration = Duration.ofSeconds(specifiedTimeout);
+        WebDriverWait wait = new WebDriverWait(driver, timeoutDuration);
         ExpectedCondition<Boolean> elementAttributeEqualsStringIW = arg0 -> element.getAttribute(attribute)
                 .replaceAll("\\s", "").equals(expectedString.replaceAll("\\s", ""));
         wait.until(elementAttributeEqualsStringIW);
@@ -569,7 +591,9 @@ public class Waiter {
      */
     public void waitForElementAttributeContainsString(WebElement element, String attribute, String expectedString,
                                                       WebDriver driver, int specifiedTimeout) {
-        WebDriverWait wait = new WebDriverWait(driver, specifiedTimeout);
+
+        Duration timeoutDuration = Duration.ofSeconds(specifiedTimeout);
+        WebDriverWait wait = new WebDriverWait(driver, timeoutDuration);
         ExpectedCondition<Boolean> elementAttributeContainsString = arg0 -> element.getAttribute(attribute).contains
                 (expectedString);
         wait.until(elementAttributeContainsString);
@@ -587,8 +611,8 @@ public class Waiter {
      * @param expectedString - the expected value of the WebElement's attribute, case insensitive
      * @param driver         - the WebDriver instance
      */
-    public void waitForElementAttributeContainsString_IgnoreCase(WebElement element, String attribute, String
-            expectedString, WebDriver driver) {
+    public void waitForElementAttributeContainsString_IgnoreCase(WebElement element, String attribute,
+                                                                 String expectedString, WebDriver driver) {
         waitForElementAttributeContainsString_IgnoreCase(element, attribute, expectedString, driver, TIMEOUT);
     }
 
@@ -605,9 +629,11 @@ public class Waiter {
      * @param driver           - the WebDriver instance
      * @param specifiedTimeout - amount of seconds you want to wait for
      */
-    public void waitForElementAttributeContainsString_IgnoreCase(WebElement element, String attribute, String
-            expectedString, WebDriver driver, int specifiedTimeout) {
-        WebDriverWait wait = new WebDriverWait(driver, specifiedTimeout);
+    public void waitForElementAttributeContainsString_IgnoreCase(WebElement element, String attribute, String expectedString,
+                                                                 WebDriver driver, int specifiedTimeout) {
+
+        Duration timeoutDuration = Duration.ofSeconds(specifiedTimeout);
+        WebDriverWait wait = new WebDriverWait(driver, timeoutDuration);
         ExpectedCondition<Boolean> elementAttributeContainsStringIC = arg0 -> element.getAttribute(attribute)
                 .toLowerCase()
                 .contains(expectedString.toLowerCase());
@@ -631,8 +657,8 @@ public class Waiter {
      *                       done
      * @param driver         - the WebDriver instance
      */
-    public void waitForElementAttributeContainsString_IgnoreWhitespaces(WebElement element, String attribute, String
-            expectedString, WebDriver driver) {
+    public void waitForElementAttributeContainsString_IgnoreWhitespaces(WebElement element, String attribute,
+                                                                        String expectedString, WebDriver driver) {
         waitForElementAttributeContainsString_IgnoreWhitespaces(element, attribute, expectedString, driver, TIMEOUT);
     }
 
@@ -653,9 +679,11 @@ public class Waiter {
      * @param driver           - the WebDriver instance
      * @param specifiedTimeout - the amount of seconds to wait for the condition to occur
      */
-    public void waitForElementAttributeContainsString_IgnoreWhitespaces(WebElement element, String attribute, String
-            expectedString, WebDriver driver, int specifiedTimeout) {
-        WebDriverWait wait = new WebDriverWait(driver, specifiedTimeout);
+    public void waitForElementAttributeContainsString_IgnoreWhitespaces(WebElement element, String attribute, String expectedString,
+                                                                        WebDriver driver, int specifiedTimeout) {
+
+        Duration timeoutDuration = Duration.ofSeconds(specifiedTimeout);
+        WebDriverWait wait = new WebDriverWait(driver, timeoutDuration);
         ExpectedCondition<Boolean> elementAttributeContainsStringIW = arg0 -> element.getAttribute(attribute)
                 .replaceAll("\\s", "")
                 .contains(expectedString.replaceAll("\\s", ""));
@@ -685,7 +713,9 @@ public class Waiter {
      * @param specifiedTimeout - amount of seconds you want to wait for
      */
     public void waitForUrl(String url, WebDriver driver, int specifiedTimeout) {
-        WebDriverWait wait = new WebDriverWait(driver, specifiedTimeout);
+
+        Duration timeoutDuration = Duration.ofSeconds(specifiedTimeout);
+        WebDriverWait wait = new WebDriverWait(driver, timeoutDuration);
         ExpectedCondition<Boolean> urlIsCorrect = arg0 -> driver.getCurrentUrl().equals(url);
         wait.until(urlIsCorrect);
         waitForPageLoadComplete(driver, specifiedTimeout);
@@ -713,7 +743,9 @@ public class Waiter {
      * @param specifiedTimeout - amount of seconds you want to wait for
      */
     public void waitForUrlContains(String expectedString, WebDriver driver, int specifiedTimeout) {
-        WebDriverWait wait = new WebDriverWait(driver, specifiedTimeout);
+
+        Duration timeoutDuration = Duration.ofSeconds(specifiedTimeout);
+        WebDriverWait wait = new WebDriverWait(driver, timeoutDuration);
         ExpectedCondition<Boolean> urlIsCorrect = arg0 -> driver.getCurrentUrl().contains(expectedString);
         wait.until(urlIsCorrect);
         waitForPageLoadComplete(driver, specifiedTimeout);
@@ -741,7 +773,9 @@ public class Waiter {
      * @param specifiedTimeout - amount of seconds you want to wait for
      */
     public void waitForUrl_IgnoreCase(String url, WebDriver driver, int specifiedTimeout) {
-        WebDriverWait wait = new WebDriverWait(driver, specifiedTimeout);
+
+        Duration timeoutDuration = Duration.ofSeconds(specifiedTimeout);
+        WebDriverWait wait = new WebDriverWait(driver, timeoutDuration);
         ExpectedCondition<Boolean> urlIsCorrect = arg0 -> driver.getCurrentUrl().toLowerCase().equals(url.toLowerCase
                 ());
         wait.until(urlIsCorrect);
@@ -770,7 +804,9 @@ public class Waiter {
      * @param specifiedTimeout - amount of seconds you want to wait for
      */
     public void waitForUrlContains_IgnoreCase(String expectedString, WebDriver driver, int specifiedTimeout) {
-        WebDriverWait wait = new WebDriverWait(driver, specifiedTimeout);
+
+        Duration timeoutDuration = Duration.ofSeconds(specifiedTimeout);
+        WebDriverWait wait = new WebDriverWait(driver, timeoutDuration);
         ExpectedCondition<Boolean> urlIsCorrect = arg0 -> driver.getCurrentUrl().toLowerCase().contains(expectedString
                 .toLowerCase());
         wait.until(urlIsCorrect);
@@ -801,7 +837,9 @@ public class Waiter {
      * @param specifiedTimeout - amount of seconds you want to wait for
      */
     public void waitForUrlStartsWith(String expectedString, WebDriver driver, int specifiedTimeout) {
-        WebDriverWait wait = new WebDriverWait(driver, specifiedTimeout);
+
+        Duration timeoutDuration = Duration.ofSeconds(specifiedTimeout);
+        WebDriverWait wait = new WebDriverWait(driver, timeoutDuration);
         ExpectedCondition<Boolean> urlIsCorrect = arg0 -> driver.getCurrentUrl().startsWith(expectedString);
         wait.until(urlIsCorrect);
         waitForPageLoadComplete(driver, specifiedTimeout);
@@ -859,8 +897,8 @@ public class Waiter {
      * @param driver              - the WebDriver instance
      * @param specifiedTimeout    - amount of seconds you want to wait for
      */
-    public void clickElementAndWaitForUrlContains(WebElement element, String expectedStringInUrl, WebDriver driver, int
-            specifiedTimeout) {
+    public void clickElementAndWaitForUrlContains(WebElement element, String expectedStringInUrl, WebDriver driver,
+                                                  int specifiedTimeout) {
         click(element, driver);
         waitForUrlContains(expectedStringInUrl, driver, specifiedTimeout);
     }
@@ -886,8 +924,8 @@ public class Waiter {
      * @param driver           - the WebDriver instance
      * @param specifiedTimeout - amount of seconds you want to wait for
      */
-    public void clickElementAndWaitForUrl_IgnoreCase(WebElement element, String url, WebDriver driver, int
-            specifiedTimeout) {
+    public void clickElementAndWaitForUrl_IgnoreCase(WebElement element, String url, WebDriver driver,
+                                                     int specifiedTimeout) {
         click(element, driver);
         waitForUrl_IgnoreCase(url, driver, specifiedTimeout);
     }
@@ -902,8 +940,8 @@ public class Waiter {
      *                            WebElement
      * @param driver              - the WebDriver instance
      */
-    public void clickElementAndWaitForUrlContains_IgnoreCase(WebElement element, String expectedStringInUrl, WebDriver
-            driver) {
+    public void clickElementAndWaitForUrlContains_IgnoreCase(WebElement element, String expectedStringInUrl,
+                                                             WebDriver driver) {
         clickElementAndWaitForUrlContains_IgnoreCase(element, expectedStringInUrl, driver, TIMEOUT);
 
     }
@@ -919,8 +957,8 @@ public class Waiter {
      * @param driver              - the WebDriver instance
      * @param specifiedTimeout    - amount of seconds you want to wait for
      */
-    public void clickElementAndWaitForUrlContains_IgnoreCase(WebElement element, String expectedStringInUrl, WebDriver
-            driver, int specifiedTimeout) {
+    public void clickElementAndWaitForUrlContains_IgnoreCase(WebElement element, String expectedStringInUrl,
+                                                             WebDriver driver, int specifiedTimeout) {
         click(element, driver);
         waitForUrlContains_IgnoreCase(expectedStringInUrl, driver, specifiedTimeout);
     }
@@ -933,8 +971,7 @@ public class Waiter {
      * @param expectedString - the String you expected the URL in the browser to start with
      * @param driver         - the WebDriver instance
      */
-    public void clickElementAndWaitForUrlStartsWith(WebElement element, String expectedString, WebDriver
-            driver) {
+    public void clickElementAndWaitForUrlStartsWith(WebElement element, String expectedString, WebDriver driver) {
         clickElementAndWaitForUrlStartsWith(element, expectedString, driver, TIMEOUT);
     }
 
@@ -947,8 +984,8 @@ public class Waiter {
      * @param driver           - the WebDriver instance
      * @param specifiedTimeout - amount of seconds you want to wait for
      */
-    public void clickElementAndWaitForUrlStartsWith(WebElement element, String expectedString, WebDriver
-            driver, int specifiedTimeout) {
+    public void clickElementAndWaitForUrlStartsWith(WebElement element, String expectedString, WebDriver driver,
+                                                    int specifiedTimeout) {
         click(element, driver);
         waitForUrlStartsWith(expectedString, driver, specifiedTimeout);
     }
@@ -978,5 +1015,4 @@ public class Waiter {
         click(element, driver, specifiedTimeout);
         waitForPageLoadComplete(driver, specifiedTimeout);
     }
-
 }
