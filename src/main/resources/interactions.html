@@ -1,0 +1,114 @@
+<html>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script>
+var app = angular.module("myShoppingList", []);
+app.controller("myCtrl", function($scope) {
+    $scope.clickButton = function () {
+            $scope.successtext = "Success!";
+    }
+
+});
+
+</script>
+
+<head>
+    <style>
+h2   {color: yellow}
+
+    </style>
+</head>
+<body>
+<header>
+    <div class="w3-padding-small w3-center w3-card-4">
+        <h1><i class="material-icons">assignment</i> Welcome to the interactions page<i
+                class="material-icons">build</i></h1>
+    </div>
+</header>
+<div ng-app="myShoppingList" ng-cloak ng-controller="myCtrl" class="w3-card-4 w3-margin w3-padding-small w3-left">
+    <h3>click()</h3>
+    <input type="checkbox" name="checkboxToClick">A checkbox<br>
+    <input type="radio" id="radioButtonToClick">The radio button
+    <button id="buttonToClick" ng-click="clickButton()" class="w3-btn w3-padding w3-teal">Button</button>
+    <p class="successMessage w3-text-green">{{successtext}}</p>
+    <a id="linkToClick" href="https://www.example.com">Link</a>
+</div>
+<div class="w3-card-4 w3-margin w3-padding-small w3-left" style="width:300px;">
+    <h3>sendKeys()</h3>
+    <input type="text">
+    <textarea maxlength="200" placeholder="12345"></textarea>
+</div>
+<div class="w3-card-4 w3-margin w3-padding-small w3-left" >
+<div id="getTextOuterDiv">
+    <h3>getText()</h3>
+    <div id="getTextInnerDiv" class="w3-card-4 w3-margin w3-padding-small" >
+        <img id="getTextImage" src="https://farm2.staticflickr.com/1854/42514697560_1740d1993f_n.jpg"
+             width="100"
+             height="100"
+             alt="This is the module with id">
+        <div class="w3-right">
+            <h5>H5 text</h5>
+            <a href="https://www.google.com">Link text</a>
+            <button type="button">Button text</button>
+            <select>
+                <option value="1">First text</option>
+                <option value="2">Second text</option>
+            </select>
+        </div>
+    </div>
+</div>
+    <textarea maxlength="100">Predefined text</textarea>
+</div>
+
+<div class="w3-card-4 w3-margin w3-padding-small w3-left">
+    <h3>getAttribute()</h3>
+    <div id="idModule" class="w3-card-4 w3-blue w3-margin w3-padding-small w3-left">
+        <h5>Using IDs</h5>
+        <img id="idModuleImage" src="https://farm2.staticflickr.com/1886/43416094775_ab4721efb9_n.jpg"
+             width="100"
+             height="100"
+             alt="This is the module with id">
+    </div>
+
+    <div class="w3-left w3-card-4 w3-margin w3-padding-small w3-border">
+        <input type="checkbox" name="checkedCheckbox" value="chkBx" checked>The checked checkbox<br>
+        <input type="checkbox" name="uncheckedCheckbox" value="unchkBx">The unchecked checkbox<br>
+        <input type="radio" id="myRadio">The radio button
+    </div>
+    <div>
+        <input class="w3-btn w3-padding w3-border w3-purple" type="button" value="A disabled button"
+               style="font-size:24px;font-family:verdana;"
+               disabled>
+    </div>
+</div>
+<div class="w3-card-4 w3-margin w3-padding-small w3-left">
+    <h3>Select</h3>
+    <select name="coffee">
+        <option value="1">Espresso</option>
+        <option value="2">Doppio</option>
+        <option value="3">Cappuccino</option>
+        <option value="4">Latte Machiato</option>
+        <option value="5">Americano</option>
+    </select>
+    <select name="tea">
+        <option value=""></option>
+        <option value="Assam">Assam</option>
+        <option value="Ceylon">Ceylon</option>
+        <option value="Earl_Grey">Earl Grey</option>
+        <option value="Pu_Erh">Pu Erh</option>
+        <option value="Lady_Grey">Lady Grey</option>
+    </select>
+    <select name="refreshment" size="5" multiple>
+        <option value="1">Rose Lemonade</option>
+        <option value="2">Lavender Lemonade</option>
+        <option value="3">Diet Coke</option>
+        <option value="4">Still Water</option>
+        <option value="5">Sparkling Water</option>
+    </select>
+</div>
+<div id="getCssValueDiv" class="w3-card-4 w3-margin w3-padding-small w3-indigo w3-left" style="width:300px;">
+    <h2>getCSSValue()</h2>
+</div>
+</body>
+</html>
